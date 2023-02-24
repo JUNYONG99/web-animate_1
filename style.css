@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300,400,500,600,700,800,900&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+body {
+    overflow: hidden; 
+}
+/* background 경우 다양한 background 옵션을 띄어쓰기로 구분해서 한번에 줄 수 있다. */ 
+/* background-color은 단순히 배경색 옵션만 부여할 수 있다. */ 
+.container {
+    width: 100%; /* 쓸 수 있는 만큼 다 써라  */
+    min-height: 100vh; /* 부모에 영향 X 뷰포트를 기준 (반응형) */
+    background-color: #f3f5f8;
+}
+
+/* Flex 아이템들은 가로 방향으로 배치되고, 자신이 가진 내용물의 width 만큼만 차지 */
+nav {
+    display: flex;
+    width: 100%;
+    /* 
+    플렉스 요소의 수평 방향 정렬 방식 
+    플렉스 요소는 앞, 뒤, 그리고 요소들 사이에도 모두 여유 공간을 두고 배치됩니다.
+    */
+    line-height: 80px;
+    justify-content: space-around;
+    height: 80px;
+    z-index: 111; /* 우선순위 숫자가 높을수록 앞에 보여짐 */
+}
+.logo {
+    display: flex;
+    font-size: 40px;
+    font-weight: 800;
+    color: #3d535f;
+    letter-spacing: 3px; /* 글자 간격 지정 */
+    cursor: pointer;
+    text-transform: uppercase; /* 대문자 변환 */
+}
+b {
+    font-size: 70px;
+    color: #7f00ff;
+}
+.navItems {
+    display: flex;
+}
+.navItems li {
+    list-style: none;
+    margin: 0 15px;
+}
+.navItems li a{
+    font-size: 25px;
+    color: #3d535f;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.navItems li:hover a,
+.sns a:hover {
+    color: #7f00ff;
+}
+.sns a {
+    font-size: 30px;
+    color: #3d535f;
+    margin: 25px 10px;
+}
+.fa-bars {
+    display: none;
+}
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 80px);
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+    overflow: hidden;
+}
+.wrapper::before {
+    position: absolute;
+    content: '';
+    height: 600px;
+    width: 600px;
+    border-radius: 50%;
+    left: -12%;
+    top: 40%;
+    background: linear-gradient(45deg, #7f00ff, pink);
+    animation: object1 6s linear infinite;
+}
+.wrapper::after {
+    position: absolute;
+    content: '';
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    left: 35%;
+    top: 12%;
+    background: linear-gradient(45deg, #7f00ff, pink);
+    animation: object2 6s linear infinite;
+}
+@keyframes object1 {
+    50%{
+        left: -13%;
+        top: 41%;
+    }
+}
+@keyframes object2 {
+    50%{
+        left: 35%;
+        top: 10%;
+    }
+}
+.cols {
+    width: 50%;
+}
+.cols0 {
+    width: 60%;
+    z-index: 5;
+}
+/* 
+display 속성이 block으로 지정된 엘리먼트는 전후 줄바꿈이 들어가
+다른 엘리먼트들을 다른 줄로 밀어내고 혼자 한 줄을 차지 
+*/
+.topLine {
+    display: block;
+    position: relative;
+    font-size: 35px;
+    letter-spacing: 5px;
+    color: #3d535f;
+}
+/* 
+별도의 class를 지정하지 않아도 지정한 것 처럼 요소 선택 가능
+::before 요소 시작 부분에 추가, ::after 요소 끝부분에 추가
+*/
+.topLine::after {
+    position: absolute;
+    content: '';
+    height: 4px;
+    width: 45px;
+    bottom: 10px;
+    background-color: #7f00ff;
+}
+/* em, rem 상대 단위 유동적으로 변한다 */
+h1 {
+    display: block;
+    font-size: 7em;
+    font-weight: 900;
+    color:#3d535f;
+}
+.multiText {
+    color: #7f00ff;
+    text-transform: capitalize;
+}
+p {
+    display: block;
+    width: 90%;
+    font-size: 1.2em;
+    color: #3d535f;
+}
+.btns {
+    width: 100%;
+    position: relative;
+    left: 150px;
+}
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 400;
+    color: #fff;
+    background-color: #3d535f;
+    padding: 8px 14px;
+    margin: 40px 5px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.4);
+}
+button:hover {
+    background-color: #7f00ff;
+    transition: 0.3s;
+}
+.imgbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.imgbox img {
+    position: relative;
+    height: 100%;
+    width: calc(130% - 80px);
+    top: -100px;
+    right: 50px;
+    transform: rotateY(180deg);
+    animation: animateUser 4s linear infinite;
+}
+@keyframes animateUser{
+    50% {
+        right: 30px;
+        top: -90px
+    }
+}
+.imgbox #splash {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-35deg);
+    width: 160%;
+    filter: saturate(200%);
+    animation: animate 4s linear infinite; 
+}
+@keyframes animate {
+    50%{
+        top: 49%;
+        left: 51%;
+        width: 155%;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    nav {
+        display: flex;
+    }
+
+    .navItems li a{
+        font-size: 20px;
+      }
+
+}
